@@ -1,6 +1,6 @@
 ## remote-devtools-har
 
-Implements the [chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface) module to gather har log
+Implements the [chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface) module to gather HAR log
 entries from a seperate Google Chrome process.
 
 Still a work in progress. The HAR entries emitted are the request and response entries as defined in the [HTTP Archive (HAR) v1.2 entries](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) specification. The complete HAR log file is not provided. Though the response objects include the response bodies.
