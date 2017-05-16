@@ -1,11 +1,20 @@
 {
-  "name": "devToolsHar",
+  "name": "devtools-har",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "lib/devToolsChrome.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "example": "node test/example.js"
   },
   "author": "glenn schlereth",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.19.1"
+  },
+  "ava": {
+    "files": [
+      "test/tests.js"
+    ]
+  }
 }
