@@ -18,11 +18,15 @@ const main = async function () {
   }
 
   const remoteDebugChrome = new RemoteDebugChrome()
-  const connectVal = await remoteDebugChrome.connect(remoterOptions)
+  await remoteDebugChrome.connect(remoterOptions)
 
-  remoteDebugChrome.on('HarEntry', function onHarEntry (err, harEntry) {
-    if (err !== null && err !== undefined ) console.log(`remoteDebugChrome: ${err.stack}`)
+  remoteDebugChrome.on('harEntry', function onHarEntry (err, harEntry) {
+    if (err !== null && err !== undefined) console.log(`remoteDebugChrome: ${err.stack}`)
     else console.log(harEntry.request.url)
+  })
+
+  remoteDebugChrome.once('closed', function onClosed () {
+    console.log(`remoteDebugChrome closed`)
   })
 
   remoteDebugChrome.on('event', function (message) {

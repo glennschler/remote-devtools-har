@@ -5,6 +5,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# on the mac
+.DS_Store
+.vscode
+*.zip
+*.exe
+
 # Runtime data
 pids
 *.pid

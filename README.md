@@ -6,11 +6,13 @@ Still a work in progress. The HAR entries emitted are the request and response e
 
 A possible implementation of this module is to listen for the HAR entries emitted, and stream them to a complete HAR file.
 
-#### Start Google Chrome with the default remote debugger port number, with other possible command line arguments:
+#### Start Google Chrome with the default remote debugger port number, plus other possible command line arguments:
 
 ```bash
---remote-debugging-port=9222 --user-data-dir=$TMPDIR/chrome/tmp1 \
---no-default-browser-check --enable-net-benchmarking \
+--remote-debugging-port=9222 \
+--user-data-dir=$TMPDIR/chrome/tmp1 \
+--no-default-browser-check \
+--enable-net-benchmarking \
 --no-first-run --no-proxy-server
 ```
 
@@ -20,6 +22,6 @@ npm run example
 ```
 
 #### For reference:
-* [Chrome DevTools Protocol Viewer - Network Domain](https://chromedevtools.github.io/devtools-protocol/tot/Network] 
+* [Chrome DevTools Protocol Viewer - Network Domain](https://chromedevtools.github.io/devtools-protocol/tot/Network)
 
   * Network domain allows tracking network activities of the page. It exposes information about http, file, data and other requests and responses, their headers, bodies, timing, etc. 

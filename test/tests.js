@@ -18,9 +18,8 @@ const remoterOptions = {
 let remoteDebugChrome = null
 describe('remoteDebugChrome', function inittest () {
   remoteDebugChrome = new RemoteDebugChrome(remoterOptions)
-  it('instantiate should not be null', function test() {
-    assert(remoteDebugChrome !== null && 
-        remoteDebugChrome !== undefined)
+  it('instantiate should not be null', function test () {
+    assert(remoteDebugChrome !== null && remoteDebugChrome !== undefined)
   })
 
   it('should connect', function connectTest (doneTest) {
@@ -30,5 +29,10 @@ describe('remoteDebugChrome', function inittest () {
       else doneTest(new Error(`failed to connect`))
     }
     asyncTest()
+  })
+
+  it('should destroy', function destroyTest (doneTest) {
+    remoteDebugChrome.destroy()
+    remoteDebugChrome.once('closed', doneTest().bind(this))
   })
 })
