@@ -17,8 +17,17 @@ const main = async function () {
     remote: false
   }
 
+  const options = {
+    remoterOptions: remoterOptions,
+    filters: {
+      ignoreRespMime: [/^image\/[^/]+/, /^application\/x-font-woff/, /^text\/css/],
+      ignoreRespUrl: [/\.woff2/],
+      ignoreRespBodyBase64: true
+    }
+  }
+
   const remoteDebugChrome = new RemoteDebugChrome()
-  await remoteDebugChrome.connect(remoterOptions)
+  await remoteDebugChrome.connect(options)
 
   remoteDebugChrome.on('harEntry', function onHarEntry (err, harEntry) {
     if (err !== null && err !== undefined) console.log(`remoteDebugChrome: ${err.stack}`)
