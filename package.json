@@ -1,10 +1,11 @@
 {
   "name": "remote-devtools-har",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "",
   "main": "lib/remoteDebugChrome.js",
   "scripts": {
-    "example": "node test/example.js"
+    "example": "node test/example.js",
+    "test": "mocha test/tests.js"
   },
   "author": "glenn schlereth",
   "license": "MIT",
