@@ -14,6 +14,7 @@ A possible implementation of this module is to listen for the HAR entries emitte
 --no-default-browser-check \
 --enable-net-benchmarking \
 --no-first-run --no-proxy-server
+--disable-gpu
 ```
 
 #### Example usage
