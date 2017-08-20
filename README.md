@@ -16,7 +16,7 @@ A possible implementation of this module is to listen for the HAR entries emitte
 --no-first-run --no-proxy-server
 ```
 
-#### Example usuage
+#### Example usage
 ```
 'use strict'
 const RemoteDebugChrome = require('remote-devtools-har')
