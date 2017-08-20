@@ -16,7 +16,49 @@ A possible implementation of this module is to listen for the HAR entries emitte
 --no-first-run --no-proxy-server
 ```
 
-#### Then start the example which uses this module
+#### Example usuage
+```
+'use strict'
+const RemoteDebugChrome = require('remote-devtools-har')
+
+/** As defined options for the chrome-remote-interface module
+* @see https://github.com/cyrus-and/chrome-remote-interface#cdpoptions-callback
+*/
+const remoterOptions = {
+  host: 'localhost',
+  port: 9222,
+  secure: false,
+  target: null,
+  protocol: null,
+  remote: false
+}
+
+// Example of option to filter out and ignore certain request/response
+const options = {
+  remoterOptions: remoterOptions,
+  filters: {
+    ignoreRespMime: [/^image\/[^/]+/, /^application\/x-font-woff/, /^text\/css/],
+    ignoreRespUrl: [/\.woff2/],
+    ignoreRespBodyBase64: true
+  }
+}
+
+const remoteDebugChrome = new RemoteDebugChrome()
+remoteDebugChrome.connect(options)
+
+remoteDebugChrome.once('connected', function connect () {
+  console.log(`connected`)
+})
+
+remoteDebugChrome.on('harEntry', function onHarEntry (err, harEntry) {
+  if (err !== null && err !== undefined) console.log(`remoteDebugChrome: ${err.stack}`)
+  else {
+    console.log(harEntry.request.url)
+  }
+})
+```
+
+#### Or start the example which uses this module
 ```bash
 npm run example
 ```
