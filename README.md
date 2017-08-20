@@ -2,7 +2,7 @@
 
 Implements the [chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface) module to gather HAR log entries from a seperate Google Chrome process.
 
-Still a work in progress. The HAR entries emitted are the request and response entries as defined in the [HTTP Archive (HAR) v1.2 entries](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) specification. The complete HAR log file is not provided. Though the response objects include the response bodies.
+The HAR entries emitted are the request and response entries as defined in the [HTTP Archive (HAR) v1.2 entries](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) specification. The response objects include the response content body which sometimes is not available ([known issue](https://bugs.chromium.org/p/chromium/issues/detail?id=141129#c46)) with the 'Save as HAR with Content' from Chrome Developer Tools when the `preserve log` option is checked.
 
 A possible implementation of this module is to listen for the HAR entries emitted, and stream them to a complete HAR file.
 
@@ -58,10 +58,11 @@ remoteDebugChrome.on('harEntry', function onHarEntry (err, harEntry) {
 })
 ```
 
-#### Or start the example which uses this module
+#### Or start the examples which use this module
 ```bash
 npm run example
 ```
+* Alse see implementation which streams all emitted har entries to a file - [remote-devtools-harfile](https://github.com/glennschler/remote-devtools-harfile)
 
 #### For reference:
 * [Chrome DevTools Protocol Viewer - Network Domain](https://chromedevtools.github.io/devtools-protocol/tot/Network)
