@@ -1,6 +1,6 @@
 {
   "name": "remote-devtools-har",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Implements the chrome-remote-interface module to gather HAR log entries from a seperate Google Chrome process",
   "main": "lib/remoteDebugChrome.js",
   "scripts": {
